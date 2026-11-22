@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBloom | Luxury Health Boutique</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-cream': '#FDFBF7',
+                        'light-blush': '#F9F1EC',
+                        'berry-burgundy': '#6A2E3E',
+                        'sage-green': '#94A38B',
+                        'soft-peach': '#E8A598',
+                        'espresso': '#2B2125',
+                        'footer-dark': '#3D2C34', // Footer ke liye dark aur attractive color
+                        'gold-accent': '#C5A059',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        .carousel-slide {
+            display: none;
+            transition: opacity 1s ease-in-out;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+
+        .glass-card {
+            background: rgba(253, 251, 247, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        /* Exact Arc / Vault shape matching reference image */
+        .arc-card-img {
+            border-top-left-radius: 180px;
+            border-top-right-radius: 180px;
+        }
+    </style>
+</head>
+
+    <body class="bg-warm-cream text-espresso font-sans antialiased selection:bg-berry-burgundy selection:text-warm-cream">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-light-blush text-berry-burgundy py-2 text-center text-[11px] tracking-widest uppercase font-semibold border-b border-soft-peach/30" data-aos="fade-down">
+        ✨ FAST University Exhibition 2026 | Free Delivery On Orders Above PKR 2,000 ✨
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-warm-cream/95 backdrop-blur-md border-b border-light-blush shadow-sm transition-all" data-aos="fade-down" data-aos-delay="100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Cute Left-Shifted Logo -->
+            <a href="index.html" class="flex items-center gap-2.5 group pl-2">
+                <div class="w-9 h-9 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-110 transition-transform">
+                    🌸
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-xl tracking-wider text-berry-burgundy uppercase leading-none">NutriBloom</span>
+                    <span class="text-[8px] tracking-widest text-gold-accent font-extrabold uppercase mt-1">Hype Tribes</span>
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="hidden md:block relative w-64">
+            <div class="flex items-center bg-light-blush/80 rounded-full px-4 py-2 w-full border border-soft-peach/40">
+                <button type="button" id="searchButton" aria-label="Search products" class="text-berry-burgundy/60 hover:text-berry-burgundy mr-3">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </button>
+                <input type="search" id="searchInput" autocomplete="off" placeholder="Search boutique items..." class="bg-transparent text-xs w-full focus:outline-none text-espresso placeholder-espresso/40">
+            </div>
+            <div id="search-results" class="hidden absolute left-0 right-0 top-12 z-50 max-h-80 overflow-y-auto rounded-2xl border border-soft-peach/50 bg-warm-cream p-2 shadow-xl"></div>
+            </div>
+
+            <!-- Navigation Links (Home Active) -->
+            <nav class="hidden lg:flex items-center gap-7 font-medium text-xs tracking-widest uppercase">
+                <a href="index.html" class="text-berry-burgundy font-bold border-b-2 border-berry-burgundy pb-0.5">Home</a>
+                <a href="about.html" class="hover:text-berry-burgundy transition-colors pb-0.5">About</a>
+                <a href="products.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Products</a>
+                <a href="services.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Services</a>
+                <a href="contact.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Contact</a>
+            </nav>
+
+            <!-- Cart Trigger Icon -->
+            <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-light-blush text-berry-burgundy hover:bg-berry-burgundy hover:text-warm-cream transition-all shadow-sm">
+                <i class="fa-solid fa-bag-shopping text-sm"></i>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-berry-burgundy text-warm-cream text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-warm-cream">0</span>
+            </button>
+        </div>
+    </header>
+         
+
+    <!-- MAIN HOME VIEW -->
+    <div id="home-view">
+        
+        <!-- SECTION 1: 3-Picture Hero Carousel -->
+        <section class="relative h-[80vh] overflow-hidden bg-espresso">
+            
+            <div class="carousel-slide active relative h-full">
+                <img src="./images.png/brown choc bar.jpg" alt="Protein Bars" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent flex items-center justify-center text-center p-6">
+                    <div class="max-w-2xl glass-card p-10 rounded-3xl border border-light-blush shadow-2xl" data-aos="zoom-in" data-aos-duration="1000">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Artisanal Line</span>
+                        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-espresso mt-4">NutriBar Protein</h1>
+                        <p class="text-xs sm:text-sm text-espresso/80 italic mt-2">Designing your daily energy, one organic clean bar at a time.</p>
+                        <a href="#boutique" class="inline-block mt-6 px-8 py-3 bg-berry-burgundy text-warm-cream text-xs font-bold tracking-widest uppercase rounded-full hover:bg-espresso transition-all shadow-md">Explore Collection</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-slide relative h-full">
+                <img src="./images.png/08_Dry_Fruit_Protein_Ball.jpg" alt="Choco Dry Fruit Balls" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent flex items-center justify-center text-center p-6">
+                    <div class="max-w-2xl glass-card p-10 rounded-3xl border border-light-blush shadow-2xl">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Guilt-Free Bites</span>
+                        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-espresso mt-4">Choco Dry Fruit Balls</h1>
+                        <p class="text-xs sm:text-sm text-espresso/80 italic mt-2">Roasted pistachios & figs dipped in 70% Belgian dark chocolate.</p>
+                        <a href="#boutique" class="inline-block mt-6 px-8 py-3 bg-berry-burgundy text-warm-cream text-xs font-bold tracking-widest uppercase rounded-full hover:bg-espresso transition-all shadow-md">View Boutique</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-slide relative h-full">
+                <img src="./images.png/dark choc date.jpg" alt="Chocolate Stuffed Dates" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent flex items-center justify-center text-center p-6">
+                    <div class="max-w-2xl glass-card p-10 rounded-3xl border border-light-blush shadow-2xl">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Superfood Gourmet</span>
+                        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-espresso mt-4">Chocolate Stuffed Dates</h1>
+                        <p class="text-xs sm:text-sm text-espresso/80 italic mt-2">Ajwa dates filled with roasted almond butter & encased in cacao.</p>
+                        <a href="#boutique" class="inline-block mt-6 px-8 py-3 bg-berry-burgundy text-warm-cream text-xs font-bold tracking-widest uppercase rounded-full hover:bg-espresso transition-all shadow-md">View Menu</a>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="changeSlide(-1)" class="absolute left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-warm-cream/90 text-espresso flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream transition-all shadow-lg">
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <button onclick="changeSlide(1)" class="absolute right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-warm-cream/90 text-espresso flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream transition-all shadow-lg">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5">
+                <span onclick="setSlide(0)" class="dot w-2.5 h-2.5 rounded-full bg-warm-cream cursor-pointer opacity-100 transition-all"></span>
+                <span onclick="setSlide(1)" class="dot w-2.5 h-2.5 rounded-full bg-warm-cream cursor-pointer opacity-50 transition-all"></span>
+                <span onclick="setSlide(2)" class="dot w-2.5 h-2.5 rounded-full bg-warm-cream cursor-pointer opacity-50 transition-all"></span>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Boutique Collection -->
+        <section id="boutique" class="py-24 max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/20 px-4 py-1.5 rounded-full">Curated Offerings</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-3">Our Boutique Collection</h2>
+                <p class="text-xs text-espresso/70 mt-2">Click any collection to explore our signature 6-item menu.</p>
+                <div class="w-12 h-0.5 bg-berry-burgundy mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div onclick="openCategory('bars')" class="bg-light-blush/50 p-6 rounded-3xl border border-soft-peach/30 shadow-lg cursor-pointer hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden rounded-2xl mb-5 relative shadow-md">
+                        <img src="./images.png/brown choc bar.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute bottom-3 right-3 bg-berry-burgundy text-warm-cream text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow">Explore 6 Items →</span>
+                    </div>
+                    <span class="text-[9px] font-bold text-gold-accent uppercase tracking-widest">COLLECTION 01</span>
+                    <h3 class="font-serif font-bold text-xl text-espresso mt-1 group-hover:text-berry-burgundy transition-colors">Artisanal Protein Bars</h3>
+                    <p class="text-xs text-espresso/70 mt-1.5 leading-relaxed">Cold-pressed whey & almond butter protein bars for sustained energy.</p>
+                </div>
+
+                <div onclick="openCategory('balls')" class="bg-light-blush/50 p-6 rounded-3xl border border-soft-peach/30 shadow-lg cursor-pointer hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden rounded-2xl mb-5 relative shadow-md">
+                        <img src="./images.png/08_Dry_Fruit_Protein_Ball.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute bottom-3 right-3 bg-berry-burgundy text-warm-cream text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow">Explore 6 Items →</span>
+                    </div>
+                    <span class="text-[9px] font-bold text-gold-accent uppercase tracking-widest">COLLECTION 02</span>
+                    <h3 class="font-serif font-bold text-xl text-espresso mt-1 group-hover:text-berry-burgundy transition-colors">Choco Dry Fruit Balls</h3>
+                    <p class="text-xs text-espresso/70 mt-1.5 leading-relaxed">Hand-rolled truffles with pistachios, figs, and Belgian dark chocolate.</p>
+                </div>
+
+                <div onclick="openCategory('dates')" class="bg-light-blush/50 p-6 rounded-3xl border border-soft-peach/30 shadow-lg cursor-pointer hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="overflow-hidden rounded-2xl mb-5 relative shadow-md">
+                        <img src="./images.png/dark choc date.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute bottom-3 right-3 bg-berry-burgundy text-warm-cream text-[10px] px-3.5 py-1.5 rounded-full font-bold shadow">Explore 6 Items →</span>
+                    </div>
+                    <span class="text-[9px] font-bold text-gold-accent uppercase tracking-widest">COLLECTION 03</span>
+                    <h3 class="font-serif font-bold text-xl text-espresso mt-1 group-hover:text-berry-burgundy transition-colors">Choco Stuffed Dates</h3>
+                    <p class="text-xs text-espresso/70 mt-1.5 leading-relaxed">Premium Ajwa dates stuffed with roasted peanut butter & cacao.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Our Story Section -->
+        <section id="about" class="py-24 bg-light-blush/40 border-y border-soft-peach/30">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative" data-aos="fade-right">
+                    <img src="./images.png/brown choc bar.jpg" alt="NutriBloom Story" class="w-full rounded-3xl shadow-xl border border-soft-peach/40">
+                    <div class="absolute -bottom-5 -right-5 bg-warm-cream p-5 rounded-2xl shadow-lg border border-soft-peach/40 hidden sm:block">
+                        <p class="font-serif font-bold text-lg text-berry-burgundy">EST. 2026</p>
+                        <p class="text-[10px] text-espresso/70">Crafted by Hype Tribes</p>
+                    </div>
+                </div>
+
+                <div class="space-y-5" data-aos="fade-left">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-3.5 py-1 rounded-full">Our Story</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso leading-tight">Nourishing Lives With Uncompromising Taste</h2>
+                    <p class="text-xs sm:text-sm text-espresso/80 leading-relaxed">
+                        NutriBloom was founded by <strong class="text-berry-burgundy">Hype Tribes</strong> at FAST University to redefine healthy eating. We believe clean nutrition should never compromise on gourmet taste or visual aesthetic.
+                    </p>
+                    <p class="text-xs sm:text-sm text-espresso/80 leading-relaxed">
+                        Every single item is hand-crafted with 100% natural ingredients, zero refined sugars, and packaged with sustainable elegance for investors and health enthusiasts.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Gift Hampers (Exact Arc Frames matching reference image)[cite: 3] -->
+        <section id="gift-hampers" class="py-24 max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Bespoke Gifting</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-3">Gift Hampers</h2>
+                <p class="text-xs text-espresso/70 mt-2">Hand-curated treasures for life's most golden moments[cite: 3].</p>
+                <div class="w-12 h-0.5 bg-berry-burgundy mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="bg-light-blush/40 p-6 rounded-3xl border border-soft-peach/30 shadow-lg text-center flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <img src="./images.png/dark choc date.jpg" class="w-full h-72 object-cover arc-card-img shadow-md mb-5 border border-soft-peach/40">
+                        <h3 class="font-serif font-bold text-2xl text-espresso">The Imperial Tray</h3>
+                        <p class="font-serif font-bold text-berry-burgundy text-lg mt-1">$185.00</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-soft-peach/30">
+                        <button onclick="addToCart('The Imperial Tray', 5180)" class="w-full py-2.5 bg-berry-burgundy text-warm-cream text-xs font-bold rounded-full uppercase tracking-wider hover:bg-espresso transition-all shadow-sm">
+                            + ADD
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-light-blush/40 p-6 rounded-3xl border border-soft-peach/30 shadow-lg text-center flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <img src="./images.png/08_Dry_Fruit_Protein_Ball.jpg" class="w-full h-72 object-cover arc-card-img shadow-md mb-5 border border-soft-peach/40">
+                        <h3 class="font-serif font-bold text-2xl text-espresso">Velvet Keepsake</h3>
+                        <p class="font-serif font-bold text-berry-burgundy text-lg mt-1">$190.00</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-soft-peach/30">
+                        <button onclick="addToCart('Velvet Keepsake', 5320)" class="w-full py-2.5 bg-berry-burgundy text-warm-cream text-xs font-bold rounded-full uppercase tracking-wider hover:bg-espresso transition-all shadow-sm">
+                            + ADD
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-light-blush/40 p-6 rounded-3xl border border-soft-peach/30 shadow-lg text-center flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <img src="./images.png/white choc date.jpg" class="w-full h-72 object-cover arc-card-img shadow-md mb-5 border border-soft-peach/40">
+                        <h3 class="font-serif font-bold text-2xl text-espresso">Floral Infusion</h3>
+                        <p class="font-serif font-bold text-berry-burgundy text-lg mt-1">$170.00</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-soft-peach/30">
+                        <button onclick="addToCart('Floral Infusion', 4760)" class="w-full py-2.5 bg-berry-burgundy text-warm-cream text-xs font-bold rounded-full uppercase tracking-wider hover:bg-espresso transition-all shadow-sm">
+                            + ADD
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center bg-light-blush/60 p-6 rounded-2xl border border-soft-peach/40 max-w-xl mx-auto" data-aos="zoom-in">
+                <p class="font-serif font-bold text-sm text-espresso">Customized for 2k26[cite: 3]</p>
+                <p class="text-[11px] text-espresso/70 mt-1">Every hamper includes a personalized calligraphy card and our signature gold-thread ribbon[cite: 3].</p>
+                <a href="#custom-hamper" class="inline-block mt-3 text-xs font-bold text-berry-burgundy tracking-widest uppercase hover:underline">VIEW FULL CATALOG —</a>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Customized Box Builder (6 Items) -->
+        <section id="custom-hamper" class="py-24 bg-light-blush/40 border-t border-soft-peach/30">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Bespoke Gifting</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-3">Build Your Custom Hamper (6 Items)</h2>
+                    <p class="text-xs text-espresso/70 mt-2">Select 6 items below to create your customized beige & soft pink boutique gift box.</p>
+                    <div class="w-12 h-0.5 bg-berry-burgundy mx-auto mt-4"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 grid sm:grid-cols-2 gap-4" data-aos="fade-right">
+                        
+                        <div class="bg-warm-cream p-4 rounded-2xl border border-soft-peach/40 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="./images.png/brown choc bar.jpg" alt="Almond Protein Bar" class="w-14 h-14 rounded-xl object-cover">
+                                <div>
+                                    <h4 class="font-serif font-bold text-xs text-espresso">Almond Protein Bar</h4>
+                                    <p class="text-[10px] text-berry-burgundy font-bold">PKR 350</p>
+                                </div>
+                            </div>
+                            <button onclick="addHamperItem('Almond Protein Bar', 350)" class="w-8 h-8 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center hover:bg-espresso transition-all">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                        <div class="bg-warm-cream p-4 rounded-2xl border border-soft-peach/40 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="./images.png/white coc bar.jpg" alt="Hazelnut Cacao Bar" class="w-14 h-14 rounded-xl object-cover">
+                                <div>
+                                    <h4 class="font-serif font-bold text-xs text-espresso">Hazelnut Cacao Bar</h4>
+                                    <p class="text-[10px] text-berry-burgundy font-bold">PKR 380</p>
+                                </div>
+                            </div>
+                            <button onclick="addHamperItem('Hazelnut Cacao Bar', 380)" class="w-8 h-8 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center hover:bg-espresso transition-all">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                        <div class="bg-warm-cream p-4 rounded-2xl border border-soft-peach/40 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="./images.png/08_Dry_Fruit_Protein_Ball.jpg" alt="Pistachio Choco Ball" class="w-14 h-14 rounded-xl object-cover">
+                                <div>
+                                    <h4 class="font-serif font-bold text-xs text-espresso">Pistachio Choco Ball</h4>
+                                    <p class="text-[10px] text-berry-burgundy font-bold">PKR 250</p>
+                                </div>
+                            </div>
+                            <button onclick="addHamperItem('Pistachio Choco Ball', 250)" class="w-8 h-8 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center hover:bg-espresso transition-all">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                        <div class="bg-warm-cream p-4 rounded-2xl border border-soft-peach/40 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <img src="./images.png/dark choc date.jpg" alt="Stuffed Ajwa Date" class="w-14 h-14 rounded-xl object-cover">
+                                <div>
+                                    <h4 class="font-serif font-bold text-xs text-espresso">Stuffed Ajwa Date</h4>
+                                    <p class="text-[10px] text-berry-burgundy font-bold">PKR 280</p>
+                                </div>
+                            </div>
+                            <button onclick="addHamperItem('Stuffed Ajwa Date', 280)" class="w-8 h-8 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center hover:bg-espresso transition-all">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                        <div class="bg-warm-cream p-4 rounded-2xl border border-soft-peach/40 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-14 h-14 rounded-xl bg-soft-peach/30 flex items-center justify-center text-berry-burgundy font-bold text-lg">🥤</div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-xs text-espresso">Pomegranate Powder Tube</h4>
+                                    <p class="text-[10px] text-berry-burgundy font-bold">PKR 300</p>
+                                </div>
+                            </div>
+                            <button onclick="addHamperItem('Pomegranate Powder', 300)" class="w-8 h-8 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center hover:bg-espresso transition-all">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                        <div class="bg-warm-cream p-4 rounded-2xl border border-soft-peach/40 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center gap-3">
+                                <div class="w-14 h-14 rounded-xl bg-sage-green/20 flex items-center justify-center text-berry-burgundy font-bold text-lg">🍫</div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-xs text-espresso">70% Dark Cacao Square</h4>
+                                    <p class="text-[10px] text-berry-burgundy font-bold">PKR 200</p>
+                                </div>
+                            </div>
+                            <button onclick="addHamperItem('70% Cacao Square', 200)" class="w-8 h-8 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center hover:bg-espresso transition-all">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="bg-warm-cream p-8 rounded-3xl border border-soft-peach/50 shadow-xl flex flex-col justify-between" data-aos="fade-left">
+                        <div>
+                            <div class="flex items-center justify-between border-b border-soft-peach/30 pb-4">
+                                <h3 class="font-serif font-bold text-lg text-espresso">Custom Box Summary</h3>
+                                <span class="text-[10px] font-bold text-berry-burgundy bg-soft-peach/30 px-3 py-1 rounded-full">6 Items Max</span>
+                            </div>
+                            
+                            <ul id="hamper-list" class="py-5 space-y-2.5 text-xs text-espresso/80">
+                                <li class="italic text-espresso/50 text-center py-4">No items selected yet.</li>
+                            </ul>
+                        </div>
+
+                        <div class="border-t border-soft-peach/30 pt-4">
+                            <div class="flex justify-between font-serif font-bold text-base mb-4">
+                                <span>Box Total:</span>
+                                <span id="hamper-total" class="text-berry-burgundy">PKR 0</span>
+                            </div>
+                            <button onclick="addCustomHamperToCart()" class="w-full py-3 bg-berry-burgundy text-warm-cream font-bold text-xs uppercase tracking-widest rounded-full hover:bg-espresso transition-all shadow-md">
+                                Add Custom Box To Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Dedicated Contact Page / Section Before Footer -->
+        <section id="contact" class="py-24 max-w-7xl mx-auto px-6" data-aos="fade-up">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Get In Touch</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-3">Contact NutriBloom Team</h2>
+                <p class="text-xs text-espresso/70 mt-2">Have questions about our exhibition stall or corporate orders? Send us a message!</p>
+                <div class="w-12 h-0.5 bg-berry-burgundy mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 bg-light-blush/50 p-5 rounded-2xl border border-soft-peach/30 shadow-sm">
+                        <div class="w-12 h-12 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-bold text-lg shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-base text-espresso">Exhibition Stall Location</h4>
+                            <p class="text-xs text-espresso/70 mt-1">FAST-NUCES Karachi Campus, Main Exhibition Hall, Stall #9 (Hype Tribes)</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-light-blush/50 p-5 rounded-2xl border border-soft-peach/30 shadow-sm">
+                        <div class="w-12 h-12 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-bold text-lg shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-base text-espresso">Official Email</h4>
+                            <p class="text-xs text-espresso/70 mt-1">hypetribes@nutribloom.pk</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-light-blush/50 p-5 rounded-2xl border border-soft-peach/30 shadow-sm">
+                        <div class="w-12 h-12 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-bold text-lg shrink-0">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-base text-espresso">Instagram Handle</h4>
+                            <p class="text-xs text-espresso/70 mt-1">@nutribloom.pk (Follow for live reels & updates!)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <form onsubmit="event.preventDefault(); alert('Message sent successfully to Hype Tribes team!');" class="bg-light-blush/40 p-8 rounded-3xl border border-soft-peach/40 shadow-xl space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Your Name</label>
+                        <input type="text" required placeholder="Enter your full name" class="w-full bg-warm-cream border border-soft-peach/60 rounded-xl p-3 text-xs focus:outline-none focus:border-berry-burgundy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Your Email</label>
+                        <input type="email" required placeholder="Enter your email" class="w-full bg-warm-cream border border-soft-peach/60 rounded-xl p-3 text-xs focus:outline-none focus:border-berry-burgundy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Message</label>
+                        <textarea rows="4" required placeholder="Type your message for investors or orders..." class="w-full bg-warm-cream border border-soft-peach/60 rounded-xl p-3 text-xs focus:outline-none focus:border-berry-burgundy"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-berry-burgundy text-warm-cream rounded-full font-bold text-xs uppercase tracking-widest hover:bg-espresso transition-all shadow-md">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- DEDICATED CATEGORY PRODUCT VIEW -->
+    <div id="category-view" class="hidden min-h-screen py-16 max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between border-b border-soft-peach/40 pb-6 mb-12">
+            <button onclick="closeCategory()" class="inline-flex items-center gap-2 px-6 py-2.5 bg-berry-burgundy text-warm-cream rounded-full text-xs font-bold uppercase tracking-wider hover:bg-espresso transition-all shadow-sm">
+                <i class="fa-solid fa-arrow-left"></i> Back To Home
+            </button>
+            <h2 id="cat-view-title" class="font-serif font-bold text-2xl sm:text-3xl text-espresso">Collection Products</h2>
+            <span class="text-[10px] font-bold text-berry-burgundy bg-soft-peach/30 px-3.5 py-1.5 rounded-full">6 Gourmet Items</span>
+        </div>
+
+        <div id="cat-products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+
+    <!-- Slide-over Cart Drawer -->
+    <!-- <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div onclick="toggleCart()" class="absolute inset-0 bg-espresso/50 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-warm-cream p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto" id="cart-content">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-soft-peach/30">
+                    <h3 class="font-serif font-bold text-xl text-espresso">Your Shopping Bag</h3>
+                    <button onclick="toggleCart()" class="p-2 text-espresso hover:text-berry-burgundy">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="py-4 space-y-3 max-h-[60vh] overflow-y-auto">
+                    <p class="text-xs text-espresso/60 text-center py-8">Your bag is empty.</p>
+                </div>
+            </div>
+            <div class="border-t border-soft-peach/30 pt-4">
+                <div class="flex items-center justify-between font-serif font-bold text-lg mb-4">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal" class="text-berry-burgundy">PKR 0</span>
+                </div>
+              <a href="checkout.html" class="block w-full py-3.5 bg-berry-burgundy text-warm-cream text-center rounded-full font-bold text-xs uppercase tracking-widest hover:bg-espresso transition-all shadow-md">
+    Proceed To Checkout
+</a>
+            </div>
+        </div>
+    </div> -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div onclick="toggleCart()" class="absolute inset-0 bg-espresso/50 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-warm-cream p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto" id="cart-content">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-soft-peach/30">
+                    <h3 class="font-serif font-bold text-xl text-espresso">Your Shopping Bag</h3>
+                    <button onclick="toggleCart()" class="p-2 text-espresso hover:text-berry-burgundy">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="py-4 space-y-3 max-h-[60vh] overflow-y-auto">
+                    <p class="text-xs text-espresso/60 text-center py-8">Your bag is empty.</p>
+                </div>
+            </div>
+            <div class="border-t border-soft-peach/30 pt-4">
+                <div class="flex items-center justify-between font-serif font-bold text-lg mb-4">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal" class="text-berry-burgundy">PKR 0</span>
+                </div>
+                <a href="checkout.html" class="block w-full py-3.5 bg-berry-burgundy text-warm-cream text-center rounded-full font-bold text-xs uppercase tracking-widest hover:bg-espresso transition-all shadow-md">
+                    Proceed To Checkout
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Thoda sa dark aur attractive color taaki page ke sath merge na ho) -->
+    <footer class="bg-footer-dark text-warm-cream py-16 border-t border-soft-peach/20" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-6 text-center sm:text-left grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center justify-center sm:justify-start gap-2.5 mb-3">
+                    <span class="text-xl">🌸</span>
+                    <h4 class="font-serif font-bold text-lg text-soft-peach">NutriBloom</h4>
+                </div>
+                <p class="text-xs text-warm-cream/70 leading-relaxed">Luxury health & clean nutrition boutique crafted by Hype Tribes for FAST University Exhibition 2026.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-soft-peach mb-3">Quick Navigation</h5>
+                <ul class="text-xs space-y-2 text-warm-cream/80">
+                    <li><a href="#boutique" class="hover:text-soft-peach">Boutique Collection</a></li>
+                    <li><a href="#about" class="hover:text-soft-peach">Our Story</a></li>
+                    <li><a href="#gift-hampers" class="hover:text-soft-peach">Gift Hampers</a></li>
+                    <li><a href="#custom-hamper" class="hover:text-soft-peach">Custom Box Builder</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-soft-peach mb-3">Exhibition Contact</h5>
+                <p class="text-xs text-warm-cream/80">FAST-NUCES Karachi Campus</p>
+                <p class="text-xs text-warm-cream/80 mt-1">hypetribes@nutribloom.pk</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-soft-peach mb-3">Connect With Us</h5>
+                <div class="flex justify-center sm:justify-start gap-4 text-xl text-soft-peach">
+                    <a href="https://instagram.com" target="_blank" class="hover:text-warm-cream transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-warm-cream transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://tiktok.com" target="_blank" class="hover:text-warm-cream transition-colors" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <p class="text-[11px] text-warm-cream/60 mt-3">@nutribloom.pk</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 mt-10 border-t border-warm-cream/10 text-center text-[11px] text-warm-cream/50">
+            © 2026 NutriBloom. All Rights Reserved. Powered by Hype Tribes .
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS.init({
+        //     duration: 900,
+        //     once: true
+        // });
+
+        // // Carousel Logic
+        // let currentSlide = 0;
+        // const slides = document.querySelectorAll('.carousel-slide');
+        // const dots = document.querySelectorAll('.dot');
+
+        // function showSlide(index) {
+        //     slides.forEach((slide, i) => {
+        //         slide.classList.remove('active');
+        //         if(dots[i]) {
+        //             dots[i].classList.add('opacity-50');
+        //             dots[i].classList.remove('opacity-100');
+        //         }
+        //     });
+        //     if(slides[index]) slides[index].classList.add('active');
+        //     if(dots[index]) {
+        //         dots[index].classList.remove('opacity-50');
+        //         dots[index].classList.add('opacity-100');
+        //     }
+        // }
+
+        // function changeSlide(direction) {
+        //     currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        //     showSlide(currentSlide);
+        // }
+
+        // function setSlide(index) {
+        //     currentSlide = index;
+        //     showSlide(currentSlide);
+        // }
+
+        // setInterval(() => { changeSlide(1); }, 6000);
+
+        // // Shopping Cart Logic
+        // let cart = [];
+
+        // function addToCart(name, price) {
+        //     const existing = cart.find(item => item.name === name);
+        //     if(existing) {
+        //         existing.qty += 1;
+        //     } else {
+        //         cart.push({ name, price, qty: 1 });
+        //     }
+        //     updateCartUI();
+        //     alert(`${name} added to your bag!`);
+        // }
+
+        // function changeQty(index, change) {
+        //     cart[index].qty += change;
+        //     if(cart[index].qty <= 0) {
+        //         cart.splice(index, 1);
+        //     }
+        //     updateCartUI();
+        // }
+
+        // function updateCartUI() {
+        //     const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+        //     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+        //     document.getElementById('cart-count').innerText = totalCount;
+        //     document.getElementById('cart-subtotal').innerText = `PKR ${totalPrice.toLocaleString()}`;
+            
+        //     const container = document.getElementById('cart-items');
+        //     if(cart.length === 0) {
+        //         container.innerHTML = '<p class="text-xs text-espresso/60 text-center py-8">Your bag is empty.</p>';
+        //     } else {
+        //         container.innerHTML = cart.map((item, idx) => `
+        //             <div class="flex items-center justify-between p-3 bg-light-blush/60 rounded-xl border border-soft-peach/30">
+        //                 <div>
+        //                     <p class="font-bold text-xs text-espresso">${item.name}</p>
+        //                     <p class="text-[10px] text-berry-burgundy font-bold">PKR ${item.price.toLocaleString()} x ${item.qty}</p>
+        //                 </div>
+        //                 <div class="flex items-center gap-2">
+        //                     <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 rounded-full bg-warm-cream border border-soft-peach text-espresso font-bold text-xs flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream">-</button>
+        //                     <span class="text-xs font-bold">${item.qty}</span>
+        //                     <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 rounded-full bg-warm-cream border border-soft-peach text-espresso font-bold text-xs flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream">+</button>
+        //                 </div>
+        //             </div>
+        //         `).join('');
+        //     }
+        // }
+
+        // function toggleCart() {
+        //     const drawer = document.getElementById('cart-drawer');
+        //     const content = document.getElementById('cart-content');
+        //     if (drawer.classList.contains('opacity-0')) {
+        //         drawer.classList.remove('opacity-0', 'pointer-events-none');
+        //         content.classList.remove('translate-x-full');
+        //     } else {
+        //         drawer.classList.add('opacity-0', 'pointer-events-none');
+        //         content.classList.add('translate-x-full');
+        //     }
+        // }
+
+        // // Custom Hamper Builder Logic
+        // let hamperItems = [];
+        // let hamperTotal = 0;
+
+        // function addHamperItem(name, price) {
+        //     if(hamperItems.length >= 6) {
+        //         alert("Your custom gift box is full (6 items max)!");
+        //         return;
+        //     }
+        //     hamperItems.push({ name, price });
+        //     hamperTotal += price;
+        //     updateHamperUI();
+        // }
+
+        // function updateHamperUI() {
+        //     const list = document.getElementById('hamper-list');
+        //     document.getElementById('hamper-total').innerText = `PKR ${hamperTotal.toLocaleString()}`;
+
+        //     if(hamperItems.length === 0) {
+        //         list.innerHTML = '<li class="italic text-espresso/50 text-center py-4">No items selected yet.</li>';
+        //     } else {
+        //         list.innerHTML = hamperItems.map((item, idx) => `
+        //             <li class="flex justify-between items-center bg-soft-peach/20 p-2.5 rounded-lg">
+        //                 <span>✨ ${item.name}</span>
+        //                 <div class="flex items-center gap-3">
+        //                     <span class="font-bold text-berry-burgundy">PKR ${item.price}</span>
+        //                     <button onclick="hamperItems.splice(${idx}, 1); hamperTotal -= ${item.price}; updateHamperUI();" class="text-espresso/40 hover:text-red-600 text-xs"><i class="fa-solid fa-xmark"></i></button>
+        //                 </div>
+        //             </li>
+        //         `).join('');
+        //     }
+        // }
+
+        // function addCustomHamperToCart() {
+        //     if(hamperItems.length === 0) {
+        //         alert("Please add at least one item to your gift box!");
+        //         return;
+        //     }
+        //     addToCart(`Custom Gift Box (${hamperItems.length} items)`, hamperTotal);
+        //     hamperItems = [];
+        //     hamperTotal = 0;
+        //     updateHamperUI();
+        // }
+
+        // Category Data
+        // const categoryData = {
+        //     bars: {
+        //         title: "Artisanal Protein Bars (6 Flavors)",
+        //         products: [
+        //             { name: "Almond Butter Whey Bar", price: 350, img: "https://images.unsplash.com/photo-1622484210800-888fa6d67564?auto=format&fit=crop&w=500&q=80", desc: "Organic whey isolate with almond butter and chia seeds." },
+        //             { name: "Hazelnut Cacao Crunch Bar", price: 380, img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=500&q=80", desc: "Raw hazelnuts and Belgian cacao with plant protein." },
+        //             { name: "Peanut Butter Oats Fudge Bar", price: 340, img: "https://images.unsplash.com/photo-1582176647440-3b2377073280?auto=format&fit=crop&w=500&q=80", desc: "Creamy roasted peanut butter and rolled oats bar." },
+        //             { name: "Dark Espresso Mocha Bar", price: 360, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80", desc: "Infused with organic coffee beans and dark chocolate." },
+        //             { name: "Matcha Pistachio Energy Bar", price: 400, img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=500&q=80", desc: "Japanese matcha green tea powder and roasted pistachios." },
+        //             { name: "Berry Antioxidant Protein Bar", price: 370, img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=500&q=80", desc: "Dried cranberries, blueberries, and seeds in raw cacao." }
+        //         ]
+        //     },
+        //     balls: {
+        //         title: "Choco Dry Fruit Balls (6 Packs)",
+        //         products: [
+        //             { name: "Pistachio Fig Dark Cacao Balls", price: 550, img: "https://images.unsplash.com/photo-1582176647440-3b2377073280?auto=format&fit=crop&w=500&q=80", desc: "Hand-rolled figs and crushed pistachios dipped in dark cacao." },
+        //             { name: "Walnut Honey Truffle Balls", price: 520, img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=500&q=80", desc: "Organic honey and roasted walnuts in 70% Belgian chocolate." },
+        //             { name: "Cashew Coconut Energy Bites", price: 500, img: "https://images.unsplash.com/photo-1622484210800-888fa6d67564?auto=format&fit=crop&w=500&q=80", desc: "Roasted cashews and toasted coconut flakes rolled in cacao." },
+        //             { name: "Almond Cardamom Gold Bites", price: 540, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80", desc: "Crushed almonds infused with organic cardamom and chocolate." },
+        //             { name: "Apricot Sesame Cacao Balls", price: 480, img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=500&q=80", desc: "Sun-dried apricots and toasted white sesame in dark chocolate." },
+        //             { name: "Roasted Hazelnut Rocher Balls", price: 580, img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=500&q=80", desc: "Whole roasted hazelnuts inside velvety dark chocolate sphere." }
+        //         ]
+        //     },
+        //     dates: {
+        //         title: "Chocolate Stuffed Dates (6 Varieties)",
+        //         products: [
+        //             { name: "Ajwa Peanut Butter Stuffed Date", price: 650, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80", desc: "Gourmet Ajwa dates stuffed with roasted peanut butter & cacao." },
+        //             { name: "Medjool Almond Butter Date", price: 680, img: "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=500&q=80", desc: "Large Medjool dates filled with almond butter and sea salt." },
+        //             { name: "Pistachio Cream Stuffed Date", price: 700, img: "https://images.unsplash.com/photo-1582176647440-3b2377073280?auto=format&fit=crop&w=500&q=80", desc: "Artisanal pistachio paste filled inside soft organic dates." },
+        //             { name: "Walnut Dark Chocolate Dip Date", price: 620, img: "https://images.unsplash.com/photo-1622484210800-888fa6d67564?auto=format&fit=crop&w=500&q=80", desc: "Whole crunchy walnuts stuffed inside dates dipped in dark chocolate." },
+        //             { name: "Cashew Vanilla Bean Stuffed Date", price: 640, img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=500&q=80", desc: "Creamy cashew paste with organic vanilla bean in cacao." },
+        //             { name: "Hazelnut Gold Dust Stuffed Date", price: 720, img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=500&q=80", desc: "Roasted hazelnut stuffed date topped with edible gold sparkle." }
+        //         ]
+        //     }
+        // };
+
+        // function openCategory(catKey) {
+        //     const cat = categoryData[catKey];
+        //     document.getElementById('cat-view-title').innerText = cat.title;
+
+        //     const grid = document.getElementById('cat-products-grid');
+        //     grid.innerHTML = cat.products.map(prod => `
+        //         <div class="bg-light-blush/40 p-6 rounded-3xl border border-soft-peach/40 shadow-lg flex flex-col justify-between">
+        //             <div>
+        //                 <img src="${prod.img}" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-sm">
+        //                 <h4 class="font-serif font-bold text-xl text-espresso">${prod.name}</h4>
+        //                 <p class="text-xs text-espresso/70 mt-1.5 leading-relaxed">${prod.desc}</p>
+        //             </div>
+        //             <div class="pt-4 mt-4 border-t border-soft-peach/30 flex items-center justify-between">
+        //                 <span class="font-serif font-bold text-lg text-berry-burgundy">PKR ${prod.price}</span>
+        //                 <button onclick="addToCart('${prod.name}', ${prod.price})" class="px-4 py-2 bg-berry-burgundy text-warm-cream text-xs font-bold rounded-full uppercase hover:bg-espresso transition-all">
+        //                     Add to Bag
+        //                 </button>
+        //             </div>
+        //         </div>
+        //     `).join('');
+
+        //     document.getElementById('home-view').classList.add('hidden');
+        //     document.getElementById('category-view').classList.remove('hidden');
+        //     window.scrollTo({ top: 0, behavior: 'smooth' });
+        // }
+
+        // function closeCategory() {
+        //     document.getElementById('category-view').classList.add('hidden');
+        //     document.getElementById('home-view').classList.remove('hidden');
+        //     window.scrollTo({ top: 0, behavior: 'smooth' });
+        // }
+    
+
+
+        
+        AOS.init({
+            duration: 900,
+            once: true
+        });
+
+        // Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if(dots[i]) {
+                    dots[i].classList.add('opacity-50');
+                    dots[i].classList.remove('opacity-100');
+                }
+            });
+            if(slides[index]) slides[index].classList.add('active');
+            if(dots[index]) {
+                dots[index].classList.remove('opacity-50');
+                dots[index].classList.add('opacity-100');
+            }
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function setSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        setInterval(() => { changeSlide(1); }, 6000);
+
+        // ==========================================
+        // UPDATED SHOPPING BAG LOGIC (WITH LOCALSTORAGE)
+        // ==========================================
+        let cart = JSON.parse(localStorage.getItem('nutribloom_cart')) || [];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCartUI();
+        });
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            saveAndSyncCart();
+            alert(`${name} added to your bag!`);
+        }
+
+        function changeQty(index, change) {
+            cart[index].qty += change;
+            if(cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            saveAndSyncCart();
+        }
+
+        function saveAndSyncCart() {
+            localStorage.setItem('nutribloom_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            const countBadge = document.getElementById('cart-count');
+            const subtotalEl = document.getElementById('cart-subtotal');
+
+            if(countBadge) countBadge.innerText = totalCount;
+            if(subtotalEl) subtotalEl.innerText = `PKR ${totalPrice.toLocaleString()}`;
+            
+            const container = document.getElementById('cart-items');
+            if(container) {
+                if(cart.length === 0) {
+                    container.innerHTML = '<p class="text-xs text-espresso/60 text-center py-8">Your bag is empty.</p>';
+                } else {
+                    container.innerHTML = cart.map((item, idx) => `
+                        <div class="flex items-center justify-between p-3 bg-light-blush/60 rounded-xl border border-soft-peach/30">
+                            <div>
+                                <p class="font-bold text-xs text-espresso">${item.name}</p>
+                                <p class="text-[10px] text-berry-burgundy font-bold">PKR ${item.price.toLocaleString()} x ${item.qty}</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 rounded-full bg-warm-cream border border-soft-peach text-espresso font-bold text-xs flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 rounded-full bg-warm-cream border border-soft-peach text-espresso font-bold text-xs flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream">+</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const content = document.getElementById('cart-content');
+            if (drawer && content) {
+                if (drawer.classList.contains('opacity-0')) {
+                    drawer.classList.remove('opacity-0', 'pointer-events-none');
+                    content.classList.remove('translate-x-full');
+                } else {
+                    drawer.classList.add('opacity-0', 'pointer-events-none');
+                    content.classList.add('translate-x-full');
+                }
+            }
+        }
+        // ==========================================
+
+        // Custom Hamper Builder Logic
+        let hamperItems = [];
+        let hamperTotal = 0;
+
+        function addHamperItem(name, price) {
+            if(hamperItems.length >= 6) {
+                alert("Your custom gift box is full (6 items max)!");
+                return;
+            }
+            hamperItems.push({ name, price });
+            hamperTotal += price;
+            updateHamperUI();
+        }
+
+        function updateHamperUI() {
+            const list = document.getElementById('hamper-list');
+            const totalEl = document.getElementById('hamper-total');
+            if(totalEl) totalEl.innerText = `PKR ${hamperTotal.toLocaleString()}`;
+
+            if(list) {
+                if(hamperItems.length === 0) {
+                    list.innerHTML = '<li class="italic text-espresso/50 text-center py-4">No items selected yet.</li>';
+                } else {
+                    list.innerHTML = hamperItems.map((item, idx) => `
+                        <li class="flex justify-between items-center bg-soft-peach/20 p-2.5 rounded-lg">
+                            <span>✨ ${item.name}</span>
+                            <div class="flex items-center gap-3">
+                                <span class="font-bold text-berry-burgundy">PKR ${item.price}</span>
+                                <button onclick="hamperItems.splice(${idx}, 1); hamperTotal -= ${item.price}; updateHamperUI();" class="text-espresso/40 hover:text-red-600 text-xs"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                        </li>
+                    `).join('');
+                }
+            }
+        }
+
+        function addCustomHamperToCart() {
+            if(hamperItems.length === 0) {
+                alert("Please add at least one item to your gift box!");
+                return;
+            }
+            addToCart(`Custom Gift Box (${hamperItems.length} items)`, hamperTotal);
+            hamperItems = [];
+            hamperTotal = 0;
+            updateHamperUI();
+        }
+
+        // Category Data
+        const categoryData = {
+            bars: {
+                title: "Artisanal Protein Bars (6 Flavors)",
+                products: [
+                    { name: "Almond Butter Whey Bar", price: 350, img: "./images.png/brown choc bar.jpg", desc: "Organic whey isolate with almond butter and chia seeds." },
+                    { name: "Hazelnut Cacao Crunch Bar", price: 380, img: "./images.png/white coc bar.jpg", desc: "Raw hazelnuts and Belgian cacao with plant protein." },
+                    { name: "Peanut Butter Oats Fudge Bar", price: 340, img: "./images.png/peanut butter.jpg", desc: "Creamy roasted peanut butter and rolled oats bar." },
+                    { name: "Dark Espresso Mocha Bar", price: 360, img: "./images.png/brown choc bar.jpg", desc: "Infused with organic coffee beans and dark chocolate." },
+                    { name: "Matcha Pistachio Energy Bar", price: 400, img: "./images.png/white coc bar.jpg", desc: "Japanese matcha green tea powder and roasted pistachios." },
+                    { name: "Berry Antioxidant Protein Bar", price: 370, img: "./images.png/peanut butter.jpg", desc: "Dried cranberries, blueberries, and seeds in raw cacao." }
+                ]
+            },
+            balls: {
+                title: "Choco Dry Fruit Balls (6 Packs)",
+                products: [
+                    { name: "Pistachio Fig Dark Cacao Balls", price: 550, img: "./images.png/08_Dry_Fruit_Protein_Ball.jpg", desc: "Hand-rolled figs and crushed pistachios dipped in dark cacao." },
+                    { name: "Walnut Honey Truffle Balls", price: 520, img: "./images.png/07_Cocoa_Coconut_Protein_Ball.jpg", desc: "Organic honey and roasted walnuts in 70% Belgian chocolate." },
+                    { name: "Cashew Coconut Energy Bites", price: 500, img: "./images.png/09_Peanut_Butter_Oat_Protein_Ball.jpg", desc: "Roasted cashews and toasted coconut flakes rolled in cacao." },
+                    { name: "Almond Cardamom Gold Bites", price: 540, img: "./images.png/08_Dry_Fruit_Protein_Ball.jpg", desc: "Crushed almonds infused with organic cardamom and chocolate." },
+                    { name: "Apricot Sesame Cacao Balls", price: 480, img: "./images.png/07_Cocoa_Coconut_Protein_Ball.jpg", desc: "Sun-dried apricots and toasted white sesame in dark chocolate." },
+                    { name: "Roasted Hazelnut Rocher Balls", price: 580, img: "./images.png/09_Peanut_Butter_Oat_Protein_Ball.jpg", desc: "Whole roasted hazelnuts inside velvety dark chocolate sphere." }
+                ]
+            },
+            dates: {
+                title: "Chocolate Stuffed Dates (6 Varieties)",
+                products: [
+                    { name: "Ajwa Peanut Butter Stuffed Date", price: 650, img: "./images.png/dark choc date.jpg", desc: "Gourmet Ajwa dates stuffed with roasted peanut butter & cacao." },
+                    { name: "Medjool Almond Butter Date", price: 680, img: "./images.png/white choc date.jpg", desc: "Large Medjool dates filled with almond butter and sea salt." },
+                    { name: "Pistachio Cream Stuffed Date", price: 700, img: "./images.png/peanut butterdate.jpg", desc: "Artisanal pistachio paste filled inside soft organic dates." },
+                    { name: "Walnut Dark Chocolate Dip Date", price: 620, img: "./images.png/dark choc date.jpg", desc: "Whole crunchy walnuts stuffed inside dates dipped in dark chocolate." },
+                    { name: "Cashew Vanilla Bean Stuffed Date", price: 640, img: "./images.png/white choc date.jpg", desc: "Creamy cashew paste with organic vanilla bean in cacao." },
+                    { name: "Hazelnut Gold Dust Stuffed Date", price: 720, img: "./images.png/peanut butterdate.jpg", desc: "Roasted hazelnut stuffed date topped with edible gold sparkle." }
+                ]
+            }
+        };
+
+        function openCategory(catKey, searchName = '') {
+            const cat = categoryData[catKey];
+            const titleEl = document.getElementById('cat-view-title');
+            if(titleEl) titleEl.innerText = searchName || cat.title;
+
+            const grid = document.getElementById('cat-products-grid');
+            if(grid) {
+                const productsToShow = searchName
+                    ? cat.products.filter(prod => prod.name.toLowerCase().includes(searchName.toLowerCase()))
+                    : cat.products;
+                grid.innerHTML = (productsToShow.length ? productsToShow : cat.products).map(prod => `
+                    <div class="bg-light-blush/40 p-6 rounded-3xl border border-soft-peach/40 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <img src="${prod.img}" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-sm">
+                            <h4 class="font-serif font-bold text-xl text-espresso">${prod.name}</h4>
+                            <p class="text-xs text-espresso/70 mt-1.5 leading-relaxed">${prod.desc}</p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-soft-peach/30 flex items-center justify-between">
+                            <span class="font-serif font-bold text-lg text-berry-burgundy">PKR ${prod.price}</span>
+                            <button onclick="addToCart('${prod.name}', ${prod.price})" class="px-4 py-2 bg-berry-burgundy text-warm-cream text-xs font-bold rounded-full uppercase hover:bg-espresso transition-all">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const homeView = document.getElementById('home-view');
+            const catView = document.getElementById('category-view');
+            if(homeView) homeView.classList.add('hidden');
+            if(catView) catView.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function closeCategory() {
+            const homeView = document.getElementById('home-view');
+            const catView = document.getElementById('category-view');
+            if(catView) catView.classList.add('hidden');
+            if(homeView) homeView.classList.remove('hidden');
+            closeSearchResults();
+            const searchInput = document.getElementById('searchInput');
+            if(searchInput) searchInput.value = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectSearchResult(catKey, productName) {
+            closeSearchResults();
+            openCategory(catKey, productName);
+            const searchInput = document.getElementById('searchInput');
+            if(searchInput) searchInput.value = productName;
+        }
+
+        function closeSearchResults() {
+            const results = document.getElementById('search-results');
+            if(results) {
+                results.classList.add('hidden');
+                results.innerHTML = '';
+            }
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        if(searchInput) {
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.trim().toLowerCase();
+                const results = document.getElementById('search-results');
+                if(!results) return;
+
+                if(query.length < 2) {
+                    closeSearchResults();
+                    return;
+                }
+
+                const matches = [];
+                Object.entries(categoryData).forEach(([catKey, category]) => {
+                    category.products.forEach(product => {
+                        if(`${product.name} ${product.desc}`.toLowerCase().includes(query)) {
+                            matches.push({ ...product, catKey });
+                        }
+                    });
+                });
+
+                const uniqueMatches = matches.slice(0, 8);
+                if(uniqueMatches.length === 0) {
+                    results.innerHTML = '<p class="px-3 py-4 text-xs text-espresso/60 text-center">No boutique items found.</p>';
+                } else {
+                    results.innerHTML = uniqueMatches.map(product => `
+                        <button type="button" onclick="selectSearchResult('${product.catKey}', '${product.name.replace(/'/g, '&#39;')}')"
+                            class="w-full flex items-center gap-3 rounded-xl p-2 text-left hover:bg-light-blush/70 transition-colors">
+                            <img src="${product.img}" alt="${product.name}" class="w-12 h-12 rounded-lg object-cover">
+                            <span class="min-w-0">
+                                <span class="block text-xs font-bold text-espresso truncate">${product.name}</span>
+                                <span class="block text-[10px] text-berry-burgundy font-bold mt-0.5">PKR ${product.price}</span>
+                            </span>
+                        </button>
+                    `).join('');
+                }
+                results.classList.remove('hidden');
+            });
+
+            searchInput.addEventListener('keydown', event => {
+                if(event.key === 'Enter') {
+                    event.preventDefault();
+                    const firstButton = document.querySelector('#search-results button');
+                    if(firstButton) firstButton.click();
+                }
+                if(event.key === 'Escape') closeSearchResults();
+            });
+
+            searchInput.addEventListener('search', () => {
+                if(!searchInput.value.trim()) closeSearchResults();
+            });
+        }
+
+        const searchButton = document.getElementById('searchButton');
+        if(searchButton) {
+            searchButton.addEventListener('click', () => {
+                const firstButton = document.querySelector('#search-results button');
+                if(firstButton) {
+                    firstButton.click();
+                } else if(searchInput) {
+                    searchInput.focus();
+                    searchInput.dispatchEvent(new Event('input'));
+                }
+            });
+        }
+
+        document.addEventListener('click', event => {
+            const searchInput = document.getElementById('searchInput');
+            const results = document.getElementById('search-results');
+            if(results && searchInput && !searchInput.parentElement.parentElement.contains(event.target)) {
+                closeSearchResults();
+            }
+        });
+    
+
+        
+        
+    </script>
+</body>
+</html>

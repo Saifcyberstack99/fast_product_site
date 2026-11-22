@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | NutriBloom Boutique</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-cream': '#FDFBF7',
+                        'light-blush': '#F5ECE6',
+                        'berry-burgundy': '#6A2E3E',
+                        'sage-green': '#94A38B',
+                        'soft-peach': '#E8A598',
+                        'espresso': '#2B2125',
+                        'footer-dark': '#2A1B20',
+                        'gold-accent': '#C5A059',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-warm-cream text-espresso font-sans antialiased selection:bg-berry-burgundy selection:text-warm-cream">
+
+    <!-- Uniform Top Banner -->
+    <div class="bg-light-blush text-berry-burgundy py-2.5 text-center text-[11px] tracking-widest uppercase font-bold border-b border-soft-peach/30">
+        ✨ FAST University Exhibition 2026 | Free Delivery On Orders Above PKR 2,000 ✨
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-warm-cream/90 backdrop-blur-md border-b border-light-blush shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5 group pl-2">
+                <div class="w-10 h-10 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-serif font-bold text-lg shadow-lg">🌸</div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-xl tracking-wider text-berry-burgundy uppercase leading-none">NutriBloom</span>
+                    <span class="text-[8px] tracking-widest text-gold-accent font-extrabold uppercase mt-1">Hype Tribes</span>
+                </div>
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-7 font-medium text-xs tracking-widest uppercase">
+                <a href="index.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Home</a>
+                <a href="about.html" class="hover:text-berry-burgundy transition-colors pb-0.5">About Us</a>
+                <a href="products.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Products</a>
+                <a href="services.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Services</a>
+                <a href="contact.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Contact</a>
+            </nav>
+
+            <a href="products.html" class="px-5 py-2.5 bg-light-blush text-berry-burgundy text-xs font-bold rounded-full uppercase hover:bg-berry-burgundy hover:text-warm-cream transition-all shadow-sm">
+                <i class="fa-solid fa-arrow-left mr-1"></i> Back to Shop
+            </a>
+        </div>
+    </header>
+
+    <!-- Checkout Main Content -->
+    <section class="py-16 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-12" data-aos="fade-down">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Secure Gateway</span>
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-3">Checkout & Delivery Details</h1>
+            <p class="text-xs text-espresso/70 mt-1">Please fill in your shipping information to complete your order with Hype Tribes.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-10">
+            
+            <!-- Shipping & Payment Form (2 Columns) -->
+            <form onsubmit="handleOrderSubmit(event)" class="lg:col-span-2 bg-light-blush/40 p-8 sm:p-10 rounded-3xl border border-soft-peach/40 shadow-xl space-y-6" data-aos="fade-right">
+                <h3 class="font-serif font-bold text-xl text-espresso border-b border-soft-peach/30 pb-3">Shipping Information</h3>
+                
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Full Name</label>
+                        <input type="text" id="c-name" required placeholder="Sumaya Shaikh" class="w-full bg-warm-cream border border-soft-peach/60 rounded-2xl p-3.5 text-xs focus:outline-none focus:border-berry-burgundy">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Phone Number</label>
+                        <input type="tel" id="c-phone" required placeholder="0300-1234567" class="w-full bg-warm-cream border border-soft-peach/60 rounded-2xl p-3.5 text-xs focus:outline-none focus:border-berry-burgundy">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Email Address</label>
+                    <input type="email" id="c-email" required placeholder="sumaya@nutribloom.pk" class="w-full bg-warm-cream border border-soft-peach/60 rounded-2xl p-3.5 text-xs focus:outline-none focus:border-berry-burgundy">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-espresso mb-1">Delivery Address</label>
+                    <textarea rows="3" id="c-address" required placeholder="House #, Street #, Area, Karachi" class="w-full bg-warm-cream border border-soft-peach/60 rounded-2xl p-3.5 text-xs focus:outline-none focus:border-berry-burgundy"></textarea>
+                </div>
+
+                <h3 class="font-serif font-bold text-xl text-espresso border-b border-soft-peach/30 pt-4 pb-3">Payment Method</h3>
+                
+                <div class="space-y-3">
+                    <label class="flex items-center gap-3 p-4 bg-warm-cream rounded-2xl border border-soft-peach/50 cursor-pointer hover:border-berry-burgundy transition-all">
+                        <input type="radio" name="payment" checked class="text-berry-burgundy focus:ring-berry-burgundy">
+                        <div>
+                            <p class="font-bold text-xs text-espresso">Cash on Delivery (COD)</p>
+                            <p class="text-[10px] text-espresso/60">Pay securely when your package arrives at your doorstep.</p>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center gap-3 p-4 bg-warm-cream rounded-2xl border border-soft-peach/50 cursor-pointer hover:border-berry-burgundy transition-all">
+                        <input type="radio" name="payment" class="text-berry-burgundy focus:ring-berry-burgundy">
+                        <div>
+                            <p class="font-bold text-xs text-espresso">Online Bank Transfer / SadaPay / NayPay</p>
+                            <p class="text-[10px] text-espresso/60">Exhibition special discount available on pre-paid orders.</p>
+                        </div>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-berry-burgundy text-warm-cream rounded-full font-bold text-xs uppercase tracking-widest hover:bg-espresso transition-all shadow-lg">
+                    Place Order Now ✨
+                </button>
+            </form>
+
+            <!-- Dynamic Order Summary Card (1 Column) -->
+            <div class="bg-warm-cream p-8 rounded-3xl border border-soft-peach/50 shadow-xl h-fit space-y-6" data-aos="fade-left">
+                <h3 class="font-serif font-bold text-xl text-espresso border-b border-soft-peach/30 pb-3">Your Order Summary</h3>
+                
+                <div id="checkout-items-list" class="space-y-3 text-xs text-espresso/80 max-h-60 overflow-y-auto">
+                    <!-- Dynamic items will load here -->
+                </div>
+
+                <div class="border-t border-soft-peach/30 pt-4 space-y-2">
+                    <div class="flex justify-between font-serif font-bold text-lg text-espresso">
+                        <span>Total Amount:</span>
+                        <span id="checkout-total" class="text-berry-burgundy">PKR 0</span>
+                    </div>
+                    <p class="text-[10px] text-espresso/50 italic text-center">Includes all exhibition taxes & sustainable packaging.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-footer-dark text-warm-cream pt-20 pb-12 border-t border-gold-accent/30 mt-20 relative overflow-hidden" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-bold text-lg">🌸</div>
+                    <h4 class="font-serif font-bold text-2xl text-soft-peach">NutriBloom</h4>
+                </div>
+                <p class="text-xs text-warm-cream/70 leading-relaxed">Luxury health & clean nutrition boutique crafted by Hype Tribes for FAST University Exhibition 2026.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-gold-accent mb-4">Quick Links</h5>
+                <ul class="text-xs space-y-2.5 text-warm-cream/80">
+                    <li><a href="index.html" class="hover:text-soft-peach">Home</a></li>
+                    <li><a href="products.html" class="hover:text-soft-peach">Products</a></li>
+                    <li><a href="contact.html" class="hover:text-soft-peach">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-gold-accent mb-4">Exhibition Hub</h5>
+                <p class="text-xs text-warm-cream/80">FAST-NUCES Karachi Campus<br>Stall #9 (Hype Tribes)</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-gold-accent mb-4">Socials</h5>
+                <div class="flex gap-4 text-xl text-soft-peach">
+                    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 mt-16 border-t border-warm-cream/10 text-center text-[11px] text-warm-cream/50">
+            © 2026 NutriBloom. All Rights Reserved. Powered by Hype Tribes Group-9.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 900, once: true });
+
+        // Load cart from localStorage and render in checkout summary
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedCart = JSON.parse(localStorage.getItem('nutribloom_cart')) || [];
+            const container = document.getElementById('checkout-items-list');
+            const totalEl = document.getElementById('checkout-total');
+
+            if(savedCart.length === 0) {
+                container.innerHTML = '<p class="text-xs text-espresso/60 text-center py-4">Your bag is empty.</p>';
+                totalEl.innerText = 'PKR 0';
+            } else {
+                let total = 0;
+                container.innerHTML = savedCart.map(item => {
+                    const sub = item.price * item.qty;
+                    total += sub;
+                    return `
+                        <div class="flex justify-between items-center">
+                            <span>${item.name} (x${item.qty})</span>
+                            <span class="font-bold">PKR ${sub.toLocaleString()}</span>
+                        </div>
+                    `;
+                }).join('');
+                totalEl.innerText = `PKR ${total.toLocaleString()}`;
+            }
+        });
+        
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            localStorage.removeItem('nutribloom_cart'); // Clear cart after order
+            alert('🎉 Order Placed Successfully! Thank you for supporting NutriBloom (Hype Tribes) at FAST University Exhibition 2026.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

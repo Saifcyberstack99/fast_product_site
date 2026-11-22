@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | NutriBloom - Hype Tribes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-cream': '#FDFBF7',
+                        'light-blush': '#F9F1EC',
+                        'berry-burgundy': '#6A2E3E',
+                        'sage-green': '#94A38B',
+                        'soft-peach': '#E8A598',
+                        'espresso': '#2B2125',
+                        'footer-dark': '#3D2C34',
+                        'gold-accent': '#C5A059',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+    <body class="bg-warm-cream text-espresso font-sans antialiased selection:bg-berry-burgundy selection:text-warm-cream">
+
+    <div class="bg-light-blush text-berry-burgundy py-2 text-center text-[11px] tracking-widest uppercase font-semibold border-b border-soft-peach/30" data-aos="fade-down">
+        ✨ FAST University Exhibition 2026 | Free Delivery On Orders Above PKR 2,000 ✨
+    </div>
+
+    <header class="sticky top-0 z-40 bg-warm-cream/95 backdrop-blur-md border-b border-light-blush shadow-sm transition-all" data-aos="fade-down" data-aos-delay="100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <a href="index.html" class="flex items-center gap-2.5 group pl-2">
+                <div class="w-9 h-9 rounded-full bg-berry-burgundy text-warm-cream flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-110 transition-transform">🌸</div>
+                <div class="flex flex-col">
+                    <span class="font-serif font-bold text-xl tracking-wider text-berry-burgundy uppercase leading-none">NutriBloom</span>
+                    <span class="text-[8px] tracking-widest text-gold-accent font-extrabold uppercase mt-1">Hype Tribes</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center bg-light-blush/80 rounded-full px-4 py-2 w-64 border border-soft-peach/40">
+                <button type="button" id="searchButton" aria-label="Search products" class="text-berry-burgundy/60 hover:text-berry-burgundy mr-3">
+                    <i class="fa-solid fa-magnifying-glass text-xs"></i>
+                </button>
+                <input type="search" id="searchInput" placeholder="Search boutique items..." class="bg-transparent text-xs w-full focus:outline-none text-espresso placeholder-espresso/40">
+            </div>
+
+            <!-- Navigation Links (About Active) -->
+            <nav class="hidden lg:flex items-center gap-7 font-medium text-xs tracking-widest uppercase">
+                <a href="index.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Home</a>
+                <a href="about.html" class="text-berry-burgundy font-bold border-b-2 border-berry-burgundy pb-0.5">About</a>
+                <a href="products.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Products</a>
+                <a href="services.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Services</a>
+                <a href="contact.html" class="hover:text-berry-burgundy transition-colors pb-0.5">Contact</a>
+            </nav>
+
+            <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-light-blush text-berry-burgundy hover:bg-berry-burgundy hover:text-warm-cream transition-all shadow-sm">
+                <i class="fa-solid fa-bag-shopping text-sm"></i>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-berry-burgundy text-warm-cream text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-warm-cream">0</span>
+            </button>
+        </div>
+    </header>
+
+
+    <!-- SECTION 1: Brand Origin & Story (What, Why, How) -->
+    <section class="py-20 bg-light-blush/60 border-b border-soft-peach/30 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-6 text-center space-y-6" data-aos="zoom-in">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">Our Story & Essence</span>
+            <h1 class="font-serif text-4xl sm:text-6xl font-bold text-espresso">The Heart of NutriBloom</h1>
+            <p class="text-sm sm:text-base text-espresso/80 leading-relaxed max-w-3xl mx-auto italic">
+                "Where pure, clean nutrition meets artisanal luxury—crafted for those who refuse to choose between health and indulgence."
+            </p>
+        </div>
+    </section>
+
+    <section class="py-20 max-w-7xl mx-auto px-6 space-y-20">
+        
+        <!-- Story Grid: What, Why & How -->
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- What is NutriBloom -->
+            <div class="bg-warm-cream p-8 rounded-3xl border border-soft-peach/40 shadow-lg hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 rounded-2xl bg-berry-burgundy text-warm-cream flex items-center justify-center font-bold text-xl mb-6 shadow-md">
+                    🌱
+                </div>
+                <span class="text-[9px] font-bold text-gold-accent uppercase tracking-widest">WHAT WE ARE</span>
+                <h3 class="font-serif font-bold text-2xl text-espresso mt-1">A Luxury Health Boutique</h3>
+                <p class="text-xs text-espresso/70 mt-3 leading-relaxed">
+                    NutriBloom is an artisanal health-food brand pioneering cold-pressed whey protein bars, dark Belgian cacao dry fruit balls, and peanut butter-stuffed Ajwa dates—all crafted with 100% natural, clean-label ingredients.
+                </p>
+            </div>
+
+            <!-- Why NutriBloom Exists -->
+            <div class="bg-warm-cream p-8 rounded-3xl border border-soft-peach/40 shadow-lg hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 rounded-2xl bg-soft-peach text-espresso flex items-center justify-center font-bold text-xl mb-6 shadow-md">
+                    ✨
+                </div>
+                <span class="text-[9px] font-bold text-gold-accent uppercase tracking-widest">WHY WE STARTED</span>
+                <h3 class="font-serif font-bold text-2xl text-espresso mt-1">Guilt-Free Indulgence</h3>
+                <p class="text-xs text-espresso/70 mt-3 leading-relaxed">
+                    We identified a gap in the market: health snacks were either dull and tasteless or packed with hidden sugars and chemical preservatives. We created NutriBloom to prove that functional nutrition can be genuinely delicious and aesthetically exquisite.
+                </p>
+            </div>
+
+            <!-- How It Was Born -->
+            <div class="bg-warm-cream p-8 rounded-3xl border border-soft-peach/40 shadow-lg hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 rounded-2xl bg-sage-green text-espresso flex items-center justify-center font-bold text-xl mb-6 shadow-md">
+                    🏛️
+                </div>
+                <span class="text-[9px] font-bold text-gold-accent uppercase tracking-widest">HOW IT BEGAN</span>
+                <h3 class="font-serif font-bold text-2xl text-espresso mt-1">From FAST to Market</h3>
+                <p class="text-xs text-espresso/70 mt-3 leading-relaxed">
+                    Born inside the halls of FAST-NUCES Karachi as an academic venture for the 2026 Exhibition, 9 passionate students banded together under Team <strong>Hype Tribes</strong> to take a classroom assignment and turn it into a commercial-grade boutique startup.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Detailed Journey Showcase -->
+        <div class="bg-light-blush/40 p-8 sm:p-12 rounded-3xl border border-soft-peach/30 grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+            <div class="space-y-4">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-3 py-1 rounded-full">Craftsmanship & Standard</span>
+                <h2 class="font-serif text-3xl font-bold text-espresso leading-tight">Our Promise of Quality</h2>
+                <p class="text-xs sm:text-sm text-espresso/80 leading-relaxed">
+                    Every product that leaves our kitchen is hand-rolled and packaged with precision. We source our dates directly from organic farms, use raw cacao beans free of refined sugars, and ensure zero artificial colors or synthetic preservatives are ever added.
+                </p>
+                <div class="flex items-center gap-6 pt-2 text-xs font-bold text-berry-burgundy">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent"></i> 100% Organic</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent"></i> Zero Sugar Added</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-check text-gold-accent"></i> Handcrafted Batch</span>
+                </div>
+            </div>
+            <div>
+                <img src="./images.png/brown choc bar.jpg" alt="NutriBloom Crafting" class="rounded-2xl shadow-xl border border-soft-peach/40 w-full">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION 2: Respected Mentor & Instructor (Centerpiece) -->
+    <section class="py-16 bg-light-blush/30 border-y border-soft-peach/30">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="bg-gradient-to-b from-warm-cream to-light-blush p-10 rounded-3xl border-2 border-gold-accent/50 shadow-2xl relative" data-aos="zoom-in">
+                <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-accent text-warm-cream text-[10px] font-bold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-md">Project Instructor & Mentor</span>
+                
+                <img src="./images.png/Ms.-Asiya-Zaheer (1).jpg" class="w-36 h-36 rounded-full object-cover mx-auto mb-4 border-4 border-gold-accent shadow-xl">
+                
+                <h2 class="font-serif font-bold text-2xl sm:text-3xl text-espresso">Respected Course Instructor</h2>
+                <p class="text-xs text-berry-burgundy font-bold uppercase tracking-wider mt-1">ASIYA ZAHEER | FAST-NUCES Karachi</p>
+                
+                <p class="text-xs sm:text-sm text-espresso/80 max-w-xl mx-auto mt-4 italic leading-relaxed">
+                    "Guiding Team Hype Tribes from conceptualization to execution—instilling the principles of market research, brand identity, and financial viability for FAST Exhibition 2026."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: The 9 Student Members of Hype Tribes -->
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-berry-burgundy bg-soft-peach/30 px-4 py-1.5 rounded-full">The Execution Team</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-espresso mt-3">Meet Team Hype Tribes</h2>
+            <p class="text-xs text-espresso/70 mt-2">The 9 dedicated students driving NutriBloom's vision forward.</p>
+            <div class="w-12 h-0.5 bg-berry-burgundy mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Student 1 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                <img src="./images.png/zawar.jpeg" alt="Sumaya Shaikh" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-berry-burgundy shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Zawar Ali</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Marketing & Brand Manager </p>
+                <p class="text-[11px] text-espresso/70 mt-2">Drives social media campaigns, promotions, storytelling, and brand awareness.</p>
+            </div>
+
+            <!-- Student 2 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="150">
+                <img src="./images.png/sumaya.jpeg" alt="Ali Khan" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-soft-peach shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso"> Sumaya Shaikh </h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Chief Executive Officer (CEO)</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Leads overall brand vision, strategy, and big-picture growth.</p>
+            </div>
+
+            <!-- Student 3 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                <img src="./images.png/rafay.png" alt="Fatima Noor" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-sage-green shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Abdul.Rafay</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">E-Commerce & Web Lead</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Maintains the website, product catalog, search/cart flow, and online orders.</p>
+            </div>
+
+            <!-- Student 4 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="250">
+                <img src="./images.png/purav.png" alt="Bilal Ahmed" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-gold-accent shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Purav Parkash</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Packaging & Creative Director</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Manages visual identity, sticker/label design, ribbons, and boutique presentation.</p>
+            </div>
+
+            <!-- Student 5 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                <img src="./images.png/duaa.png" alt="Ayesha Malik" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-berry-burgundy shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Duaa Fatima</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Product & R&D Lead</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Develops recipes, flavor variants, nutrition quality, and product consistency.</p>
+            </div>
+
+            <!-- Student 6 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="350">
+                <img src="./images.png/raja.png" alt="Usman Tariq" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-soft-peach shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Raja Shazil</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Chief Operating Officer (COO)</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Oversees daily operations, production flow, and exhibition/stall execution.</p>
+            </div>
+
+            <!-- Student 7 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+                <img src="./images.png/ahmed.png" alt="Zainab Riaz" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-sage-green shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Muhamad Ahmed</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Supply Chain & Inventory Manager</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Tracks raw ingredients, packaging stock, suppliers, and order fulfillment.</p>
+            </div>
+
+            <!-- Student 8 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="450">
+                <img src="./images.png/yashfeenn.png" alt="Hassan Raza" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-gold-accent shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Yashfeen</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Customer Support Manager</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Handles customer inquiries, feedback, custom orders, and post-purchase care.</p>
+            </div>
+
+            <!-- Student 9 -->
+            <div class="bg-warm-cream p-6 rounded-3xl border border-soft-peach/40 shadow-md text-center hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="500">
+                <img src="./images.png/haseeb.png" alt="Dania Sheikh" class="w-24 h-24 rounded-full object-cover mx-auto mb-3 border-2 border-berry-burgundy shadow">
+                <h4 class="font-serif font-bold text-lg text-espresso">Abdul.Haseeb</h4>
+                <p class="text-xs text-berry-burgundy font-semibold mt-0.5">Finance Manager</p>
+                <p class="text-[11px] text-espresso/70 mt-2">Handles budgeting, pricing, costs, financial tracking, and profit margins.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+        <div onclick="toggleCart()" class="absolute inset-0 bg-espresso/50 backdrop-blur-sm"></div>
+        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-warm-cream p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto" id="cart-content">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-soft-peach/30">
+                    <h3 class="font-serif font-bold text-xl text-espresso">Your Shopping Bag</h3>
+                    <button onclick="toggleCart()" class="p-2 text-espresso hover:text-berry-burgundy">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="py-4 space-y-3 max-h-[60vh] overflow-y-auto">
+                    <p class="text-xs text-espresso/60 text-center py-8">Your bag is empty.</p>
+                </div>
+            </div>
+            <div class="border-t border-soft-peach/30 pt-4">
+                <div class="flex items-center justify-between font-serif font-bold text-lg mb-4">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal" class="text-berry-burgundy">PKR 0</span>
+                </div>
+                <a href="checkout.html" class="block w-full py-3.5 bg-berry-burgundy text-warm-cream text-center rounded-full font-bold text-xs uppercase tracking-widest hover:bg-espresso transition-all shadow-md">
+                    Proceed To Checkout
+                </a>
+            </div>
+        </div>
+    </div>
+
+     <!-- Footer (Thoda sa dark aur attractive color taaki page ke sath merge na ho) -->
+    <footer class="bg-footer-dark text-warm-cream py-16 border-t border-soft-peach/20" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-6 text-center sm:text-left grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center justify-center sm:justify-start gap-2.5 mb-3">
+                    <span class="text-xl">🌸</span>
+                    <h4 class="font-serif font-bold text-lg text-soft-peach">NutriBloom</h4>
+                </div>
+                <p class="text-xs text-warm-cream/70 leading-relaxed">Luxury health & clean nutrition boutique crafted by Hype Tribes for FAST University Exhibition 2026.</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-soft-peach mb-3">Quick Navigation</h5>
+                <ul class="text-xs space-y-2 text-warm-cream/80">
+                    <li><a href="#boutique" class="hover:text-soft-peach">Boutique Collection</a></li>
+                    <li><a href="#about" class="hover:text-soft-peach">Our Story</a></li>
+                    <li><a href="#gift-hampers" class="hover:text-soft-peach">Gift Hampers</a></li>
+                    <li><a href="#custom-hamper" class="hover:text-soft-peach">Custom Box Builder</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-soft-peach mb-3">Exhibition Contact</h5>
+                <p class="text-xs text-warm-cream/80">FAST-NUCES Karachi Campus</p>
+                <p class="text-xs text-warm-cream/80 mt-1">hypetribes@nutribloom.pk</p>
+            </div>
+            <div>
+                <h5 class="font-bold text-xs uppercase tracking-widest text-soft-peach mb-3">Connect With Us</h5>
+                <div class="flex justify-center sm:justify-start gap-4 text-xl text-soft-peach">
+                    <a href="https://instagram.com" target="_blank" class="hover:text-warm-cream transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-warm-cream transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://tiktok.com" target="_blank" class="hover:text-warm-cream transition-colors" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <p class="text-[11px] text-warm-cream/60 mt-3">@nutribloom.pk</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 mt-10 border-t border-warm-cream/10 text-center text-[11px] text-warm-cream/50">
+            © 2026 NutriBloom. All Rights Reserved. Powered by Hype Tribes .
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 900,
+            once: true
+        });
+
+
+        let cart = JSON.parse(localStorage.getItem('nutribloom_cart')) || [];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateCartUI();
+        });
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if(existing) { 
+                existing.qty += 1; 
+            } else { 
+                cart.push({ name, price, qty: 1 }); 
+            }
+            localStorage.setItem('nutribloom_cart', JSON.stringify(cart));
+            updateCartUI();
+            alert(`${name} added to your bag!`);
+        }
+
+        function changeQty(index, change) {
+            cart[index].qty += change;
+            if(cart[index].qty <= 0) { 
+                cart.splice(index, 1); 
+            }
+            localStorage.setItem('nutribloom_cart', JSON.stringify(cart));
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            
+            const countBadge = document.getElementById('cart-count');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            
+            if(countBadge) countBadge.innerText = totalCount;
+            if(subtotalEl) subtotalEl.innerText = `PKR ${totalPrice.toLocaleString()}`;
+            
+            const container = document.getElementById('cart-items');
+            if(container) {
+                if(cart.length === 0) {
+                    container.innerHTML = '<p class="text-xs text-espresso/60 text-center py-8">Your bag is empty.</p>';
+                } else {
+                    container.innerHTML = cart.map((item, idx) => `
+                        <div class="flex items-center justify-between p-3 bg-light-blush/60 rounded-xl border border-soft-peach/35">
+                            <div>
+                                <p class="font-bold text-xs text-espresso">${item.name}</p>
+                                <p class="text-[10px] text-berry-burgundy font-bold">PKR ${item.price.toLocaleString()} x ${item.qty}</p>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 rounded-full bg-warm-cream border border-soft-peach text-espresso font-bold text-xs flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream">-</button>
+                                <span class="text-xs font-bold">${item.qty}</span>
+                                <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 rounded-full bg-warm-cream border border-soft-peach text-espresso font-bold text-xs flex items-center justify-center hover:bg-berry-burgundy hover:text-warm-cream">+</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const content = document.getElementById('cart-content');
+            if (drawer && content) {
+                if (drawer.classList.contains('opacity-0')) {
+                    drawer.classList.remove('opacity-0', 'pointer-events-none');
+                    content.classList.remove('translate-x-full');
+                } else {
+                    drawer.classList.add('opacity-0', 'pointer-events-none');
+                    content.classList.add('translate-x-full');
+                }
+            }
+        }
+    </script>
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        function submitSiteSearch() {
+            const query = searchInput?.value.trim();
+            if(query) window.location.href = `products.html?q=${encodeURIComponent(query)}`;
+        }
+        searchButton?.addEventListener('click', submitSiteSearch);
+        searchInput?.addEventListener('keydown', event => {
+            if(event.key === 'Enter') {
+                event.preventDefault();
+                submitSiteSearch();
+            }
+        });
+    </script>
+</body>
+</html>
